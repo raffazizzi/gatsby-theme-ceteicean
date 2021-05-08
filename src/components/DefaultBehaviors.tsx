@@ -16,14 +16,14 @@ type ImgProps = {
 
 export type Behavior = (props: TEIProps) => JSX.Element | null
 
-const forwardAttributes = (atts: NamedNodeMap) => {
+export const forwardAttributes = (atts: NamedNodeMap) => {
   return Array.from(atts).reduce<any>((acc, att) => {
     acc[att.name === 'ref' ? 'Ref' : att.name] = att.value
     return acc
   }, {})
 }
 
-const SafeUnchangedNode = (props: TEIProps) => {
+export const SafeUnchangedNode = (props: TEIProps) => {
   // Re-build an element that does not need changing
   // to avoid routes from being infinitely re-applied
   if (props.teiNode.nodeType === 1) {
