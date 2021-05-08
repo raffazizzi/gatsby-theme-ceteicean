@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://vault.tei-c.org/P5/current/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://vault.tei-c.org/P5/current/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+ <teiHeader>
+     <fileDesc>
+        <titleStmt>
+           <title>A title</title>
+        </titleStmt>
+        <publicationStmt>
+           <p/>
+        </publicationStmt>
+        <sourceDesc>
+           <p/>
+        </sourceDesc>
+     </fileDesc>
+     <encodingDesc>
+      <tagsDecl>
+        <rendition scheme="css"
+        selector="emph">
+          font-style: italic;
+        </rendition>
+      </tagsDecl>
+     </encodingDesc>
+ </teiHeader>
+ <text>
+   <body>
+    <ab><eg>const code = "some code"</eg></ab>
+    <ab>
+      <graphic url="https://tei-c.org/wp-content/themes/teic-wp-theme/css/banner.jpg" width="200px"/>
+    </ab>
+    <ab xml:id="ab1">lorem <ptr target="#ab1"/> ipsum</ab>
+    <ab xml:id="ab2">lorem <ref target="#ab2">ipsum</ref> sic</ab>
+    <ab>
+      <!-- Should pass safely without behavior -->
+      <list type="instructions">
+        <label>One</label>
+        <item>Do one</item>
+        <label>Two</label>
+        <item>Do <emph>two</emph></item>
+      </list>
+    </ab>
+    <ab>
+      <list type="gloss">
+        <label>One</label>
+        <item>Uno</item>
+        <label>Two</label>
+        <item><emph rendition="red">Due</emph></item>
+      </list>
+    </ab>
+    <ab>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<note place="end">A note with <emph>emphasis</emph></note> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident,<note place="end">A second note.</note> sunt in culpa qui officia deserunt mollit anim id est laborum.</ab>
+   </body>
+ </text>
+</TEI>
