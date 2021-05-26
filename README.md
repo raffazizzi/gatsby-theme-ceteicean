@@ -43,7 +43,7 @@ To lean more about how the XML files are sourced, see [gatsby-transformer-ceteic
 
 ## Defining behaviors
 
-Once the XML documents are rendered as HTML Custom Elemnets, they can be styled via CSS, for example:
+Once the XML documents are rendered as HTML Custom Elements, they can be styled via CSS, for example:
 
 ```css
 tei-p {
