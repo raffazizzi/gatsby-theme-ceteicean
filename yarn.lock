@@ -3315,6 +3315,11 @@ cssfilter@0.0.10:
   resolved "https://registry.npmjs.org/cssfilter/-/cssfilter-0.0.10.tgz"
   integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
 
+cssjson@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/cssjson/-/cssjson-2.1.3.tgz#b855aa06c5979df16bf6375a14a455e415660169"
+  integrity sha1-uFWqBsWXnfFr9jdaFKRV5BVmAWk=
+
 cssnano-preset-default@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmjs.org/cssnano-preset-default/-/cssnano-preset-default-4.0.8.tgz"
@@ -8687,11 +8692,12 @@ react-refresh@^0.9.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.9.0.tgz"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
-react-teirouter@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-teirouter/-/react-teirouter-2.0.3.tgz#e0fdfff8e36464cab4c7d184f1685dac05f8469f"
-  integrity sha512-85+lBL51OC7+0ruyOi22KdLelbskjG/kB0vL32yw+tV3ozQ4WjAEUao0lpzli3qFySwTgwjgN8VtAgOMHj+uAw==
+react-teirouter@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-teirouter/-/react-teirouter-2.0.4.tgz#2256d88462b9039ec52039bb51c9cdb7bb307e9b"
+  integrity sha512-CbKrVVvOgNSV5J/CWfcHRWc9NmnD0Zj7O9O3YPSrXtrarMe4AV+RFiYzikSdNUwKtxZhmH/cZ6wtXR57U940bA==
   dependencies:
+    cssjson "^2.1.3"
     tiny-warning "^1.0.3"
 
 react@^17.0.2:
