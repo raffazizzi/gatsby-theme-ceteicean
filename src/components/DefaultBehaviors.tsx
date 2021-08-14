@@ -14,7 +14,7 @@ type ImgProps = {
   height?: string | number
 }
 
-export type Behavior = (props: TEIProps) => JSX.Element | null
+export type TBehavior = (props: TEIProps) => JSX.Element | null
 
 export const forwardAttributes = (atts: NamedNodeMap) => {
   return Array.from(atts).reduce<any>((acc, att) => {
@@ -40,7 +40,7 @@ export const SafeUnchangedNode = (props: TEIProps) => {
   )
 }
 
-export const Eg: Behavior = (props: TEIProps) => {
+export const Eg: TBehavior = (props: TEIProps) => {
   return (<Behavior node={props.teiNode}>
     <pre>
       {<TEINodes 
@@ -50,7 +50,7 @@ export const Eg: Behavior = (props: TEIProps) => {
   </Behavior>)
 }
 
-export const Graphic: Behavior = (props: TEIProps) => {
+export const Graphic: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
   const src = el.getAttribute("url")
   if (!src) return null
@@ -70,7 +70,7 @@ export const Graphic: Behavior = (props: TEIProps) => {
   </Behavior>)
 }
 
-export const List: Behavior = (props: TEIProps) => {
+export const List: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
 
   if (el.getAttribute("type") !== "gloss") {
@@ -97,7 +97,7 @@ export const List: Behavior = (props: TEIProps) => {
   </Behavior>)
 }
 
-export const Note: Behavior = (props: TEIProps) => {
+export const Note: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
 
   if (el.getAttribute("place") !== "end") {
@@ -118,7 +118,7 @@ export const Note: Behavior = (props: TEIProps) => {
 
 }
 
-export const Ptr: Behavior = (props: TEIProps) => {
+export const Ptr: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
   const target = el.getAttribute("target") || ""
   return (<Behavior node={props.teiNode}>
@@ -126,7 +126,7 @@ export const Ptr: Behavior = (props: TEIProps) => {
   </Behavior>)
 }
 
-export const Ref: Behavior = (props: TEIProps) => {
+export const Ref: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
   const target = el.getAttribute("target") || ""
   return (<Behavior node={props.teiNode}>
@@ -138,7 +138,7 @@ export const Ref: Behavior = (props: TEIProps) => {
   </Behavior>)
 }
 
-export const Tei: Behavior = (props: TEIProps) => {
+export const Tei: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
 
   const before: React.ReactElement[] = []
@@ -155,8 +155,8 @@ export const Tei: Behavior = (props: TEIProps) => {
           teiNodes={note.childNodes}
           {...props}/>}
       </li>)
-      return acc
     }
+    return acc
   }, [])
 
   if (endNotes.length > 0) {
@@ -178,7 +178,7 @@ export const Tei: Behavior = (props: TEIProps) => {
   </>)
 }
 
-export const TeiHeader: Behavior = (props: TEIProps) => {
+export const TeiHeader: TBehavior = (props: TEIProps) => {
   const el = props.teiNode as Element
   return (
     React.createElement(
