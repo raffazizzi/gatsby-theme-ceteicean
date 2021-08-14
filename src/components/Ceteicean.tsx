@@ -1,11 +1,10 @@
 import React, { useEffect } from "react"
-import { DOMParser } from "xmldom"
 import { TEIRender, TEIRoute } from "react-teirouter"
 
 import define from "../define"
 
 import {
-  Behavior,
+  TBehavior,
   Tei,
   Eg,
   Graphic,
@@ -23,20 +22,23 @@ type Props = {
     elements: string[]
   }
   routes?: Routes
+  parseFromString: any
 }
 
 export type Routes = {
-  [key: string]: Behavior
+  [key: string]: TBehavior | JSX.Element
 }
 
 export default function Ceteicean({ pageContext, routes }: Props) {
+
+  const parser = global ? new global.DOMParser() : new DOMParser()
 
   useEffect(() => {
     define(pageContext.elements)
   })
 
   const {prefixed} = pageContext
-  const doc: Document = new DOMParser().parseFromString(prefixed)
+  const doc: Document = parser.parseFromString(prefixed, 'text/xml')
   const defaultRoutes: Routes = {
     "tei-tei": Tei,
     "tei-eg": Eg,
