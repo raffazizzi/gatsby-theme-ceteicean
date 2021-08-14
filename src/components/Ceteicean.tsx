@@ -22,7 +22,6 @@ type Props = {
     elements: string[]
   }
   routes?: Routes
-  parseFromString: any
 }
 
 export type Routes = {
