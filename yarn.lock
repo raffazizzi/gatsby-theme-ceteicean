@@ -4998,10 +4998,10 @@ gatsby-telemetry@^2.3.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-transformer-ceteicean@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-ceteicean/-/gatsby-transformer-ceteicean-1.0.0.tgz#896201d4fcffc53580e0cf090ce698cf19f1ce24"
-  integrity sha512-tfWG4fZBzIETj95I9cQruQv/DO0eDshUrF6L80jFv8RIrsVpYAMs80vBh5g/eM6Ah3d0eYoectDrpDfm5lkN1A==
+gatsby-transformer-ceteicean@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-ceteicean/-/gatsby-transformer-ceteicean-1.1.0.tgz#06949819263bc500eed15659b46d7b0712a71af9"
+  integrity sha512-7rWBidoYj/8ow+HzLkKUxF+eBLwvuLWe0iTOnYdDcTojg/gHxvDsVseufRzPahWsH7RRzt24dSlzHCHJYGaVeg==
   dependencies:
     xmldom "^0.6.0"
 
@@ -8711,7 +8711,7 @@ react-refresh@^0.9.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.9.0.tgz"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
-react-teirouter@2.1.0:
+react-teirouter@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-teirouter/-/react-teirouter-2.1.0.tgz#b95f1fbc45ec7812f7191ebb8ac69e41044e9f14"
   integrity sha512-eY8bXBmT7VOdz+0VGJm071DUAHwOSq7vznSUNqFtHLAtjx0s1QuXbmsCDLQr19nT34Xd2tbMX2nLmF0PzIbzHw==

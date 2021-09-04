@@ -39,7 +39,20 @@ module.exports = {
 }
 ```
 
-To lean more about how the XML files are sourced, see [gatsby-transformer-ceteicean](https://github.com/raffazizzi/gatsby-transformer-ceteicean/).
+To lean more about how the XML files are sourced, see [gatsby-transformer-ceteicean](https://github.com/raffazizzi/gatsby-transformer-ceteicean/). You can pass transformation functions to `gatsby-transformer-ceteicean` via options:
+
+```js
+const preTransform = require('./preTransform')
+const postTransform = require('./postTransform')
+
+{
+  resolve: `gatsby-theme-ceteicean`,
+  options: {
+    applyBefore: [preTransform],
+    applyAfter: [postTransform],
+  }
+},
+```
 
 ## Defining behaviors
 
