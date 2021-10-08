@@ -115,3 +115,20 @@ export default function ShadowedCeteicean({pageContext}) {
 
 }
 ```
+
+## Beyond TEI
+
+Other namespaces besides TEI can be passed on to the transformer. They will get prefixed and registered, but you will have to define styles and behaviors. You can pass a set of namespaces as an option in `gatsby-config.js` that will replace the default namespaces.
+
+```js
+{
+  resolve: `gatsby-theme-ceteicean`,
+  options: {
+    {
+      "http://www.tei-c.org/ns/1.0": "tei",
+      "http://www.tei-c.org/ns/Examples": "teieg",
+      "http://www.w3.org/2001/XInclude": "xi"
+    }
+  }
+},
+```
