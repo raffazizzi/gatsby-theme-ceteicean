@@ -1,23 +1,33 @@
-import React, { FunctionComponent } from "react"
+import React from "react"
 
-export const Behavior: FunctionComponent<{node: Node}> = ({children, node}) => {
+interface Props {
+  node: Node
+  children?: JSX.Element | JSX.Element[]
+}
+
+/* This is a React component that takes a node and some children as props. It returns a span element
+with the original content of the node hidden from view.
+Use this component when the original TEI needs to be replaced by HTML structures. */
+export const Behavior = ({children, node}: Props) => {
 
   const serializer = global ? new global.XMLSerializer() : new XMLSerializer()
 
-  // Keep the original content in the DOM, but hide it from view.
-  // Use this component when the original TEI needs to be replaced by HTML structures.
-  let content = ""
   if (node.nodeType === 1) {
     const el = node as Element
-    for (const c of Array.from(el.childNodes)) {
-      content += serializer.serializeToString(c)
-    }
-  } else {
-    content = node.textContent || ""
+    return React.createElement(
+      el.tagName,
+      {},
+      <>
+        <span hidden aria-hidden data-original
+          dangerouslySetInnerHTML={{__html: serializer.serializeToString(el)}} />
+        {children}
+      </>
+    )
   }
-  return (<>
+  
+  return <>
     <span hidden aria-hidden data-original
-      dangerouslySetInnerHTML={{__html: content}} />
+      dangerouslySetInnerHTML={{__html: node.textContent || ""}} />
     {children}
-  </>)
+  </>
 }
