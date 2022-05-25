@@ -1,7 +1,7 @@
 const {DOMParser, XMLSerializer} = require("xmldom")
 const React = require("react")
 
-exports.wrapRootElement = ({ element }) => {
+export const wrapRootElement = ({ element }) => {
   global.DOMParser = DOMParser
   global.XMLSerializer = XMLSerializer
   return (
