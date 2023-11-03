@@ -1,4 +1,9 @@
-exports.createPages = async ({ actions, graphql, reporter }) => {
+exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
+  console.log(themeOptions);
+
+  if (themeOptions.fullShadow) return;
+  const filesToSkip = themeOptions.exclude || [];
+
   const { createPage } = actions
   const component = require.resolve(`./src/components/Ceteicean.tsx`)
 
@@ -11,6 +16,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           parent {
             ... on File {
               name
+              ext
             }
           }
         }
@@ -22,7 +28,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   for (const node of result.data.allCetei.nodes) {
-    const name = node.parent.name
+    const {name, ext} = node.parent
+
+    if (filesToSkip.includes(name + ext)) continue;
+
     createPage({
       path: name,
       component,

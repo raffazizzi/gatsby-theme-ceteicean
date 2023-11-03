@@ -116,6 +116,32 @@ export default function ShadowedCeteicean({pageContext}) {
 }
 ```
 
+## Other options
+
+### `options.fullShadow`
+By default, `gatsby-theme-ceteicean` will create a page for each sourced XML file. You can turn this off and write your own `createPages` function.
+
+```js
+{
+  resolve: `gatsby-theme-ceteicean`,
+  options: {
+    fullShadow: true
+  }
+},
+```
+
+### `options.exclude`
+You can exclude some files from being converted into web pages by providing their file names.
+
+```js
+{
+  resolve: `gatsby-theme-ceteicean`,
+  options: {
+    exclude: ["tei1.xml", "tei2.xml"]
+  }
+},
+```
+
 ## Beyond TEI
 
 Other namespaces besides TEI can be passed on to the transformer. They will get prefixed and registered, but you will have to define styles and behaviors. You can pass a set of namespaces as an option in `gatsby-config.js` that will replace the default namespaces.
@@ -124,7 +150,7 @@ Other namespaces besides TEI can be passed on to the transformer. They will get 
 {
   resolve: `gatsby-theme-ceteicean`,
   options: {
-    {
+    namespaces: {
       "http://www.tei-c.org/ns/1.0": "tei",
       "http://www.tei-c.org/ns/Examples": "teieg",
       "http://www.w3.org/2001/XInclude": "xi"
