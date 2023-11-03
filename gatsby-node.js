@@ -1,6 +1,4 @@
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
-  console.log(themeOptions);
-
   if (themeOptions.fullShadow) return;
   const filesToSkip = themeOptions.exclude || [];
 
