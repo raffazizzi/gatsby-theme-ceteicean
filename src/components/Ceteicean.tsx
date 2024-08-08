@@ -1,19 +1,6 @@
-import React, { useEffect } from "react"
-import { TEIRender, TEIRoute } from "react-teirouter"
-
-import define from "../define"
-
-import {
-  TBehavior,
-  Tei,
-  Eg,
-  Graphic,
-  List,
-  Note,
-  Ptr,
-  Ref,
-  TeiHeader
-} from "./DefaultBehaviors"
+import React from "react"
+import Renderer from "./Renderer"
+import type { TBehavior } from "./DefaultBehaviors"
 
 type Props = {
   pageContext: {
@@ -29,35 +16,6 @@ export type Routes = {
 }
 
 export default function Ceteicean({ pageContext, routes }: Props) {
-
-  const parser = global ? new global.DOMParser() : new DOMParser()
-
-  useEffect(() => {
-    define(pageContext.elements)
-  })
-
-  const {prefixed} = pageContext
-  const doc: Document = parser.parseFromString(prefixed, 'text/xml')
-  const defaultRoutes: Routes = {
-    "tei-tei": Tei,
-    "tei-eg": Eg,
-    "tei-graphic": Graphic,
-    "tei-list": List,
-    "tei-note": Note,
-    "tei-ptr": Ptr,
-    "tei-ref": Ref,
-    "tei-teiheader": TeiHeader
-  }
-
-  const _routes = routes ? routes : defaultRoutes
-
-  const teiRoutes = Object.keys(_routes).map((el, i) => {
-    return <TEIRoute el={el} component={_routes[el]} key={`tr-${i}`}/>
-  })
-
-  return (
-    <TEIRender data={doc.documentElement}>
-      {teiRoutes}
-    </TEIRender>
-  )
+  const {name, prefixed, elements} = pageContext;
+  return <Renderer name={name} prefixed={prefixed} elements={elements} routes={routes}/>
 }
