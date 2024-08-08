@@ -142,6 +142,25 @@ You can exclude some files from being converted into web pages by providing thei
 },
 ```
 
+## Using theme components without shadowing
+
+It is possible to use the theme's underlying components without shadowing. In this case we recommend starting from the `Renderer` component.
+
+This can be useful when rendering TEI fragments as opposed to full TEI documents to put in a page.
+
+```js
+import { Renderer } from "gatsby-theme-ceteicean/src/components/Renderer"
+
+export default function MyComponent() {
+
+  return(
+    <Renderer name="example" elements={["tei-tei"]} prefixed="<tei-tei/>" routes={} />
+  )
+
+}
+
+```
+
 ## Beyond TEI
 
 Other namespaces besides TEI can be passed on to the transformer. They will get prefixed and registered, but you will have to define styles and behaviors. You can pass a set of namespaces as an option in `gatsby-config.js` that will replace the default namespaces.
